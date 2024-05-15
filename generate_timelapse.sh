@@ -37,6 +37,7 @@ base_filename=$(basename "$filename")
 temp_dir=$(mktemp -d)
 
 # Extract frames from the input video at a rate of 1 frame per second and save them as PNG images in the temporary directory
+# adjust frames per second as needed
 ffmpeg -i "$filename" -r 1 -f image2 "$temp_dir/%05d.png"
 
 # Create the timelapse video from the extracted frames and output it to the destination folder
